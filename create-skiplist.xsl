@@ -4,18 +4,27 @@
     xmlns:math="http://www.w3.org/2005/xpath-functions/math" exclude-result-prefixes="#all"
     xmlns="http://www.w3.org/2000/svg" version="3.0">
     <!-- TODO:
-        Add first tier
-        Keys may not be numeric, but will be sorted
+        Standardize variable names as lower camelCase
+        Keys may not be numeric, but will be sorted, so use position()
+        Function to compute center of rectangle for dot or text
         Function to create numbered yellow rectangle
         Function to create rectangle with dot
+        Add first tier
         Function to create rectangle with NIL for tail
         Function to draw all arrow for level at a time, where higher level
             implies all lower levels
+        Compute @viewBox instead of guessing
     -->
     <xsl:output method="xml" indent="yes"/>
+    <!-- ========================================================== -->
+    <!-- Stylesheet variables                                       -->
+    <!-- ========================================================== -->
     <xsl:variable name="root" as="document-node()" select="/"/>
     <xsl:variable name="xScale" as="xs:double" select="40"/>
     <xsl:variable name="maxHeight" as="xs:double" select="max(//Node[not(@name)]/@level)"/>
+    <!-- ========================================================== -->
+    <!-- Stylesheet functions                                       -->
+    <!-- ========================================================== -->
     <xsl:function name="djb:draw-arrow" as="item()+">
         <xsl:param name="start-node" as="xs:integer"/>
         <xsl:param name="end-node" as="xs:integer"/>
@@ -23,6 +32,9 @@
         <line x1="{$start-node * $xScale}" y1="-{$level + 0.5 * $xScale}"
             x2="{$start-node * $xScale}" y2="{$level + 0.5 * $xScale}" stroke="black"/>
     </xsl:function>
+    <!-- ========================================================== -->
+    <!-- Main                                                       -->
+    <!-- ========================================================== -->
     <xsl:template match="/">
         <svg viewBox="-50 -300 500 350" width="90%">
             <!-- ================================================== -->
