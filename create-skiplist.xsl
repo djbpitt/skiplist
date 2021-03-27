@@ -54,7 +54,7 @@
     <xsl:variable name="textSize" as="xs:string" select="'400%'"/>
     <xsl:variable name="maxLevels" as="xs:double" select="max(//Node[not(@name)]/@level)"/>
     <xsl:variable name="nodeCount" as="xs:integer" select="count(//Node[not(@name)])"/>
-    <xsl:variable name="circleRadius" as="xs:double" select="$boxSize * .15"/>
+    <xsl:variable name="circleRadius" as="xs:double" select="$boxSize * .10"/>
     <xsl:variable name="nilColor" as="xs:string" select="'#E8E8E8'"/>
 
     <!-- ========================================================== -->
@@ -134,7 +134,10 @@
             cy="-{($djb-f:level - 1) * $djb-f:boxSize + $djb-f:boxCenterOffset}"
             r="{$djb-f:circleRadius}" fill="black"/>
     </xsl:function>
-    <xsl:function name="djb:draw-arrow" as="element(svg:line)">
+    <xsl:function name="djb:nodesAtLevel" as="xs:integer+">
+        <xsl:param name="allNodes" as="element(Node)"/>
+    </xsl:function>
+    <xsl:function name="djb:drawArrow" as="element(svg:line)">
         <!-- ====================================================== -->
         <!-- Draw arrow                                             -->
         <!--                                                        -->
@@ -163,12 +166,11 @@
             <!-- ================================================== -->
             <xsl:apply-templates select="//Node"/>
             <!-- ================================================== -->
-            <!-- Draw skips                                         -->
+            <!-- Draw skip lines for each level                     -->
+            <!-- Compute nodes at level, pass into drawing function -->
             <!-- ================================================== -->
-            <!--            <xsl:for-each select="2 to xs:integer($maxLevels)">
-                <xsl:variable name="node-keys-at-height" as="xs:double+"
-                    select="-1, $root//Node[@level = current()]/@key, count($root//Node[not(@name)]) + 1"/>
-                <xsl:message select="$node-keys-at-height => string-join(', ')"/>
+            <!--<xsl:for-each select="1 to xs:integer($maxLevels)">
+                <xsl:sequence select="djb:nodesAtLevel() => djb:drawArros()"/>
             </xsl:for-each>-->
         </svg>
     </xsl:template>
