@@ -24,7 +24,6 @@
             variable value sort of local to the function that uses it 
             (that is, it avoids using a global stylesheet variable),
             and the caching avoids repeating the computation
-        Arrowhead SVG: view-source:https://upload.wikimedia.org/wikipedia/commons/5/59/SVG_double_arrow_with_marker-start_and_marker-end.svg
         
         Create dumpAsXML function in PySkipList
     -->
@@ -52,7 +51,8 @@
     <xsl:variable name="boxCenterOffset" as="xs:double" select="$boxSize div 2"/>
     <xsl:variable name="textShift" as="xs:double" select="3"/>
     <xsl:variable name="textSize" as="xs:string" select="'400%'"/>
-    <xsl:variable name="maxLevels" as="xs:double" select="max(//Node[not(@name)]/@level)"/>
+    <xsl:variable name="maxLevels" as="xs:integer"
+        select="xs:integer(max(//Node[not(@name)]/@level ! xs:integer(.)))"/>
     <xsl:variable name="nodeCount" as="xs:integer" select="count(//Node[not(@name)])"/>
     <xsl:variable name="circleRadius" as="xs:double" select="$boxSize * .10"/>
     <xsl:variable name="nilColor" as="xs:string" select="'#E8E8E8'"/>
@@ -135,7 +135,10 @@
             r="{$djb-f:circleRadius}" fill="black"/>
     </xsl:function>
     <xsl:function name="djb:nodesAtLevel" as="xs:integer+">
-        <xsl:param name="allNodes" as="element(Node)"/>
+        <xsl:param name="djb-f:level"/>
+        <xsl:param name="djb-f:allNodes" as="element(Node)+"/>
+        <xsl:sequence
+            select="$djb-f:allNodes[@level &gt;= $djb-f:level] ! count(preceding-sibling::Node)"/>
     </xsl:function>
     <xsl:function name="djb:drawArrow" as="element(svg:line)">
         <!-- ====================================================== -->
@@ -147,12 +150,17 @@
         <!-- Returns:                                               -->
         <!--   svg:line                                             -->
         <!-- ====================================================== -->
-        <xsl:param name="djb-f:start-node" as="xs:integer"/>
-        <xsl:param name="djb-f:end-node" as="xs:integer"/>
+        <xsl:param name="djb-f:startNode" as="xs:integer"/>
+        <xsl:param name="djb-f:endNode" as="xs:integer"/>
         <xsl:param name="djb-f:level" as="xs:integer"/>
-        <line x1="{$djb-f:start-node * $boxSize}" y1="-{$djb-f:level + 0.5 * $boxSize}"
-            x2="{$djb-f:start-node * $boxSize}" y2="{$djb-f:level + 0.5 * $boxSize}" stroke="black"
-        />
+        <xsl:param name="djb-f:boxSpacing" as="xs:double"/>
+        <xsl:param name="djb-f:boxSize" as="xs:double"/>
+        <xsl:param name="djb-f:boxCenterOffset" as="xs:double"/>
+        <xsl:variable name="djb-f:height"
+            select="-1 * (($djb-f:level - 1) * $djb-f:boxSize + $djb-f:boxCenterOffset)"/>
+        <line x1="{($djb-f:startNode + 1) * $djb-f:boxSpacing + $djb-f:boxCenterOffset}"
+            y1="{$djb-f:height}" x2="{($djb-f:endNode + 1) * $boxSpacing}" y2="{$djb-f:height}"
+            stroke="black" stroke-width="2" marker-end="url(#arrowend)"/>
     </xsl:function>
 
     <!-- ========================================================== -->
@@ -161,6 +169,14 @@
     <xsl:template match="/">
         <svg
             viewBox="-{$boxSpacing} -{($maxLevels + 1) * $boxSize} {$boxSpacing * ($nodeCount + 5)} {($maxLevels + 2) * $boxSize}">
+            <defs>
+                <!-- view-source:https://upload.wikimedia.org/wikipedia/commons/5/59/SVG_double_arrow_with_marker-start_and_marker-end.svg -->
+                <marker id="arrowend" viewBox="0 0 13 10" refX="2" refY="5" markerWidth="3.5"
+                    markerHeight="3.5" orient="auto">
+                    <path d="M 0 0  C 0 0, 3 5, 0 10   L 0 10  L 13 5" fill="black" transform="scale(100)"/>
+                </marker>
+            </defs>
+
             <!-- ================================================== -->
             <!-- Draw nodes, including levels                       -->
             <!-- ================================================== -->
@@ -169,9 +185,15 @@
             <!-- Draw skip lines for each level                     -->
             <!-- Compute nodes at level, pass into drawing function -->
             <!-- ================================================== -->
-            <!--<xsl:for-each select="1 to xs:integer($maxLevels)">
-                <xsl:sequence select="djb:nodesAtLevel() => djb:drawArros()"/>
-            </xsl:for-each>-->
+            <xsl:for-each select="1 to $maxLevels">
+                <xsl:variable name="currentLevel" select="."/>
+                <xsl:variable name="nodesToLink" select="djb:nodesAtLevel(., $root//Node)"/>
+                <xsl:for-each select="2 to count($nodesToLink)">
+                    <xsl:sequence
+                        select="djb:drawArrow($nodesToLink[current() - 1], $nodesToLink[current()], $currentLevel, $boxSpacing, $boxSize, $boxCenterOffset)"
+                    />
+                </xsl:for-each>
+            </xsl:for-each>
         </svg>
     </xsl:template>
     <xsl:template match="Node">
