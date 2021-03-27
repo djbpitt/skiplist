@@ -17,13 +17,12 @@
     <!-- TODO:
         Render value
             Modify for CollateX, where value is a variant graph node
-        Function to draw all arrows for level at a time, where higher level
-            implies all lower levels
         Outsource computation of static function values to helper function
             with @cache set to yes; this keeps the computation of the
             variable value sort of local to the function that uses it 
             (that is, it avoids using a global stylesheet variable),
             and the caching avoids repeating the computation
+        More graceful arrowheads, with less finicky positioning
         
         Create dumpAsXML function in PySkipList
     -->
@@ -171,9 +170,13 @@
             viewBox="-{$boxSpacing} -{($maxLevels + 1) * $boxSize} {$boxSpacing * ($nodeCount + 5)} {($maxLevels + 2) * $boxSize}">
             <defs>
                 <!-- view-source:https://upload.wikimedia.org/wikipedia/commons/5/59/SVG_double_arrow_with_marker-start_and_marker-end.svg -->
-                <marker id="arrowend" viewBox="0 0 13 10" refX="2" refY="5" markerWidth="3.5"
+                <!--<marker id="arrowend" viewBox="0 0 13 10" refX="2" refY="5" markerWidth="3.5"
                     markerHeight="3.5" orient="auto">
-                    <path d="M 0 0  C 0 0, 3 5, 0 10   L 0 10  L 13 5" fill="black" transform="scale(100)"/>
+                    <path d="M 0 0  C 0 0, 3 5, 0 10   L 0 10  L 13 5" fill="black"
+                        transform="scale(100)"/>
+                </marker>-->
+                <marker id="arrowend" viewBox="-30 -8 30 16" markerWidth="30" markerHeight="8">
+                    <path d="M -30 0  L -30 8  L 0 0  L -30 -8  Z" fill="black"/>
                 </marker>
             </defs>
 
