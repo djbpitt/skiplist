@@ -5,6 +5,7 @@
     xmlns="http://www.w3.org/2000/svg" version="3.0">
     <!-- TODO:
         Standardize variable names as lower camelCase
+        Rename height and width variable something other than $xScale
         Keys may not be numeric, but will be sorted, so use position()
         Function to compute center of rectangle for dot or text
         Function to create numbered yellow rectangle
