@@ -5,20 +5,18 @@
     xmlns:math="http://www.w3.org/2005/xpath-functions/math" exclude-result-prefixes="#all"
     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="3.0">
     <!-- ========================================================== -->
-    <!-- About this file                                            -->
+    <!-- Naming conventions                                         -->
     <!-- ========================================================== -->
-    <!-- stylesheet variable names are in lower camelCase,          -->
-    <!--   e.g. $maxLevels                                          -->
-    <!-- function names are hyphenated and in the djb namespace,    -->
-    <!--   e.g., djb:draw-arrow()                                   -->
-    <!-- function variables are in lower camelCases in the djb-f    -->
-    <!--   namespace, e.g., djb-f:startNode                         -->
+    <!-- stylesheet variable names:                                 -->
+    <!--   lower camelCase, e.g., $maxLevels                        -->
+    <!-- function names:                                            -->
+    <!--   lower camelCase, djb namespace, e.g., djb:centerDot()    -->
+    <!-- function variable names:                                   -->
+    <!--   lower camelCases, djb-f namespace, e.g., djb-f:startNode -->
     <!-- ========================================================== -->
     <!-- TODO:
         Render value
             Modify for CollateX, where value is a variant graph node
-        General function to draw rectangle, used by
-            Function to create rectangle with NIL for tail
         Function to draw all arrows for level at a time, where higher level
             implies all lower levels
         Outsource computation of static function values to helper function
@@ -36,8 +34,11 @@
     <!-- Stylesheet parameters                                      -->
     <!--                                                            -->
     <!-- $boxSize: height and width of boxes                        -->
+    <!--                                                            -->
+    <!-- TODO: Declaring this as static raises a Java NPE when      -->
+    <!--   placing circles inside head boxes; Saxon issue?          -->
     <!-- ========================================================== -->
-    <xsl:param name="boxSize" as="xs:double" static="yes" select="100"/>
+    <xsl:param name="boxSize" as="xs:double" select="100"/>
 
     <!-- ========================================================== -->
     <!-- Stylesheet variables                                       -->
@@ -50,9 +51,11 @@
     <xsl:variable name="boxSpacing" as="xs:double" select="$boxSize * 2"/>
     <xsl:variable name="boxCenterOffset" as="xs:double" select="$boxSize div 2"/>
     <xsl:variable name="textShift" as="xs:double" select="3"/>
+    <xsl:variable name="textSize" as="xs:string" select="'400%'"/>
     <xsl:variable name="maxLevels" as="xs:double" select="max(//Node[not(@name)]/@level)"/>
     <xsl:variable name="nodeCount" as="xs:integer" select="count(//Node[not(@name)])"/>
     <xsl:variable name="circleRadius" as="xs:double" select="$boxSize * .15"/>
+    <xsl:variable name="nilColor" as="xs:string" select="'#E8E8E8'"/>
 
     <!-- ========================================================== -->
     <!-- Stylesheet functions                                       -->
@@ -182,7 +185,7 @@
         <xsl:sequence
             select="djb:centerText(position(), 0, $boxSize, $boxCenterOffset, $boxSpacing, xs:string(position() - 2), $textShift, '500%')"/>
         <text x="{position() * $boxSpacing + $boxCenterOffset}" y="150" text-anchor="middle"
-            dominant-baseline="middle" fill="black" font-size="400%">
+            dominant-baseline="middle" fill="black" font-size="{$textSize}">
             <xsl:value-of select="@value"/>
         </text>
         <!-- ================================================== -->
@@ -196,45 +199,44 @@
         </xsl:for-each>
     </xsl:template>
     <xsl:template match="Node[@name]">
-        <!--       <xsl:choose>
+        <xsl:choose>
             <xsl:when test="@name eq 'head'">
-                <!-\- ============================================== -\->
-                <!-\- Create boxes and labels for head               -\->
-                <!-\- ============================================== -\->
-                <xsl:for-each select="2 to xs:integer($maxLevels)">
-                    <rect x="-{$boxSize}" y="-{$boxSize div 2 * (current() - 1)}"
-                        width="{$boxSize div 2}" height="{$boxSize div 2}" stroke="black"
-                        fill="none"/>
-                    <circle cx="{-$boxSize + ($boxSize div 4)}"
-                        cy="-{$boxSize * (current() - 1.5) div 2}" r="3" fill="black"/>
+                <!-- ============================================== -->
+                <!-- Create boxes and labels for head               -->
+                <!-- ============================================== -->
+                <xsl:for-each select="1 to xs:integer($maxLevels)">
+                    <!-- create box -->
+                    <xsl:sequence select="djb:drawRectangle(1, ., $boxSize, $boxSpacing)"/>
+                    <!-- create dot -->
+                    <xsl:sequence
+                        select="djb:centerDot(1, ., $boxSize, $boxCenterOffset, $boxSpacing, $circleRadius)"
+                    />
                 </xsl:for-each>
-                <text x="{-$boxSize + ($boxSize div 4)}" y="{$boxSize div 4}" dy="{$textShift}"
-                    fill="black" text-anchor="middle" dominant-baseline="middle" font-size="x-small"
-                    >head</text>
+                <!-- label head -->
+                <text x="{$boxSpacing + $boxCenterOffset}" y="150" fill="gray"
+                    font-size="{$textSize}" dominant-baseline="middle" text-anchor="middle"
+                    >[head]</text>
             </xsl:when>
             <xsl:otherwise>
-                <!-\- ============================================== -\->
-                <!-\- Create boxes and labels for tail               -\->
-                <!-\- Write NIL in separate loop because of z-index  -\->
-                <!-\- ============================================== -\->
-                <xsl:variable name="xPos" as="xs:double"
-                    select="count(//Node[not(@name)]) * $boxSize"/>
-                <xsl:for-each select="2 to xs:integer($maxLevels)">
-                    <rect x="{$xPos}" y="-{$boxSize div 2 * (current() - 1)}"
-                        width="{$boxSize div 2}" height="{$boxSize div 2}" stroke="black"
-                        fill="#E8E8E8"/>
+                <!-- ============================================== -->
+                <!-- Create boxes and labels for tail               -->
+                <!-- ============================================== -->
+                <xsl:variable name="xPos" as="xs:integer" select="$nodeCount + 2"/>
+                <xsl:for-each select="1 to xs:integer($maxLevels)">
+                    <!-- create box -->
+                    <xsl:sequence
+                        select="djb:drawRectangle($xPos, ., $boxSize, $boxSpacing, $nilColor)"/>
+                    <!--write NIL into box-->
+                    <text x="{$xPos * $boxSpacing + $boxCenterOffset}"
+                        y="-{. * $boxSize - $boxCenterOffset}" dominant-baseline="middle"
+                        text-anchor="middle" fill="black" font-size="300%">NIL</text>
+                    <!-- label tail -->
+                    <text x="{$xPos * $boxSpacing + $boxCenterOffset}" y="150" fill="gray"
+                        font-size="{$textSize}" dominant-baseline="middle" text-anchor="middle"
+                        >[tail]</text>
                 </xsl:for-each>
-                <xsl:for-each select="2 to xs:integer($maxLevels)">
-                    <text x="{$xPos + ($boxSize div 4)}"
-                        y="-{$boxSize div 2 * (current() - 1) - ($boxSize div 4)}" fill="black"
-                        text-anchor="middle" dominant-baseline="middle" font-size="xx-small"
-                        >NIL</text>
-                </xsl:for-each>
-                <text x="{$xPos + ($boxSize div 4)}" y="{$boxSize div 4}" dy="3{$textShift}"
-                    fill="black" text-anchor="middle" dominant-baseline="middle" font-size="x-small"
-                    >tail</text>
             </xsl:otherwise>
         </xsl:choose>
- -->
+
     </xsl:template>
 </xsl:stylesheet>
