@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skiplist>
-    <data>
-        <node key="0" value="hi"/>
-        <node key="1" value="hi"/>
-        <node key="2" value="hi"/>
-        <node key="3" value="hi"/>
-        <node key="4" value="hi"/>
-        <node key="5" value="hi"/>
-        <node key="6" value="hi"/>
-        <node key="7" value="hi"/>
-        <node key="8" value="hi"/>
-        <node key="9" value="hi"/>
-    </data>
     <nodes>
         <Node level="20" key="None" value="None" skip="0" name="head"/>
-        <Node level="1" key="0" value="hi" skip="0"/>
-        <Node level="1" key="1" value="hi" skip="0"/>
-        <Node level="1" key="2" value="hi" skip="0"/>
-        <Node level="1" key="3" value="hi" skip="0"/>
-        <Node level="1" key="4" value="hi" skip="0"/>
-        <Node level="2" key="5" value="hi" skip="6"/>
-        <Node level="1" key="6" value="hi" skip="0"/>
-        <Node level="1" key="7" value="hi" skip="0"/>
-        <Node level="3" key="8" value="hi" skip="9"/>
-        <Node level="1" key="9" value="hi" skip="0"/>
-        <Node level="20" key="None" value="None" skip="1" name="tail"/>
+        <Node level="2" key="0000" value="the" skip="1"/>
+        <Node level="1" key="0001" value="red" skip="0"/>
+        <Node level="1" key="0002" value="and" skip="0"/>
+        <Node level="2" key="0003" value="the" skip="3"/>
+        <Node level="3" key="0004" value="black" skip="5"/>
+        <Node level="1" key="0005" value="cat" skip="0"/>
+        <Node level="1" key="0006" value="played" skip="0"/>
+        <Node level="1" key="0007" value="with" skip="0"/>
+        <Node level="1" key="0008" value="the" skip="0"/>
+        <Node level="1" key="0009" value="gray" skip="0"/>
+        <Node level="2" key="0010" value="and" skip="6"/>
+        <Node level="1" key="0011" value="the" skip="0"/>
+        <Node level="1" key="0012" value="brown" skip="0"/>
+        <Node level="1" key="0013" value="koalas" skip="0"/>
+        <Node level="20" key="None" value="None" skip="9" name="tail"/>
     </nodes>
 </skiplist>
