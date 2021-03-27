@@ -5,16 +5,21 @@
     xmlns="http://www.w3.org/2000/svg" version="3.0">
     <!-- TODO:
         Standardize variable names as lower camelCase
-        Rename height and width variable something other than $xScale
+            Refer to levels as level, not height
+            Add stylesheet variable for @dy on centered <text>
+            Rename height and width variable something other than $xScale
         Keys may not be numeric, but will be sorted, so use position()
+        General function to draw rectangle, used by
+            Function to create numbered yellow rectangle
+            Function to create rectangle with dot
+            Function to create rectangle with NIL for tail
         Function to compute center of rectangle for dot or text
-        Function to create numbered yellow rectangle
-        Function to create rectangle with dot
         Add first tier
-        Function to create rectangle with NIL for tail
         Function to draw all arrow for level at a time, where higher level
             implies all lower levels
         Compute @viewBox instead of guessing
+        
+        Create dumpAsXML function in PySkipList
     -->
     <xsl:output method="xml" indent="yes"/>
     <!-- ========================================================== -->
