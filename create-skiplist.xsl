@@ -231,7 +231,7 @@
                 <!-- ============================================== -->
                 <!-- Create boxes and labels for head               -->
                 <!-- ============================================== -->
-                <xsl:for-each select="1 to xs:integer($maxLevels)">
+                <xsl:for-each select="1 to $maxLevels">
                     <!-- create box -->
                     <xsl:sequence select="djb:drawRectangle(1, ., $boxSize, $boxSpacing)"/>
                     <!-- create dot -->
@@ -249,7 +249,7 @@
                 <!-- Create boxes and labels for tail               -->
                 <!-- ============================================== -->
                 <xsl:variable name="xPos" as="xs:integer" select="$nodeCount + 2"/>
-                <xsl:for-each select="1 to xs:integer($maxLevels)">
+                <xsl:for-each select="1 to $maxLevels">
                     <!-- create box -->
                     <xsl:sequence
                         select="djb:drawRectangle($xPos, ., $boxSize, $boxSpacing, $nilColor)"/>
