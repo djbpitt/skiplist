@@ -257,11 +257,11 @@
                     <text x="{$xPos * $boxSpacing + $boxCenterOffset}"
                         y="-{. * $boxSize - $boxCenterOffset}" dominant-baseline="middle"
                         text-anchor="middle" fill="black" font-size="300%">NIL</text>
-                    <!-- label tail -->
-                    <text x="{$xPos * $boxSpacing + $boxCenterOffset}" y="150" fill="gray"
-                        font-size="{$textSize}" dominant-baseline="middle" text-anchor="middle"
-                        >[tail]</text>
                 </xsl:for-each>
+                <!-- label tail -->
+                <text x="{$xPos * $boxSpacing + $boxCenterOffset}" y="150" fill="gray"
+                    font-size="{$textSize}" dominant-baseline="middle" text-anchor="middle"
+                    >[tail]</text>
             </xsl:otherwise>
         </xsl:choose>
 
