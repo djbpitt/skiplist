@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -400 4200 500" height="600">
+
+<defs>
+  <marker id="arrowend"
+          viewBox="-30 -8 30 16"
+          markerWidth="30"
+          markerHeight="8">
+     <path d="M -30 0  L -30 8  L 0 0  L -30 -8  Z" fill="black"/>
+ </marker>
+</defs>
+
+<rect x="0" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="50.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="0" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="50.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="0" y="-300" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="50.0" cy="-250.0" r="10.0" fill="black"/>
+<text x="50.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="gray" font-size="400%">[head]</text>
+<rect x="200" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="250.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">1</text>
+<text x="250.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">the</text>
+<rect x="200" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="250.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="400" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="450.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">2</text>
+<text x="450.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">red</text>
+<rect x="400" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="450.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="400" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="450.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="600" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="650.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">3</text>
+<text x="650.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">and</text>
+<rect x="600" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="650.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="600" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="650.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="800" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="850.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">4</text>
+<text x="850.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">the</text>
+<rect x="800" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="850.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="1000" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="1050.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">5</text>
+<text x="1050.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">black</text>
+<rect x="1000" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1050.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="1000" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1050.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="1000" y="-300" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1050.0" cy="-250.0" r="10.0" fill="black"/>
+<rect x="1200" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="1250.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">6</text>
+<text x="1250.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">cat</text>
+<rect x="1200" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1250.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="1200" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1250.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="1200" y="-300" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1250.0" cy="-250.0" r="10.0" fill="black"/>
+<rect x="1400" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="1450.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">7</text>
+<text x="1450.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">played</text>
+<rect x="1400" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1450.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="1600" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="1650.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">8</text>
+<text x="1650.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">with</text>
+<rect x="1600" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1650.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="1800" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="1850.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">9</text>
+<text x="1850.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">the</text>
+<rect x="1800" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1850.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="1800" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1850.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="1800" y="-300" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="1850.0" cy="-250.0" r="10.0" fill="black"/>
+<rect x="2000" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="2050.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">10</text>
+<text x="2050.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">gray</text>
+<rect x="2000" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2050.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="2200" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="2250.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">11</text>
+<text x="2250.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">and</text>
+<rect x="2200" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2250.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="2200" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2250.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="2400" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="2450.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">12</text>
+<text x="2450.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">the</text>
+<rect x="2400" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2450.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="2600" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="2650.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">13</text>
+<text x="2650.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">brown</text>
+<rect x="2600" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2650.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="2600" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2650.0" cy="-150.0" r="10.0" fill="black"/>
+<rect x="2800" y="0" height="100" width="100"         stroke="black" stroke-width="2" fill="yellow"/>
+<text x="2850.0" y="50.0" dy="3" dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">14</text>
+<text x="2850.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="400%">koalas</text>
+<rect x="2800" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="none"/>
+<circle cx="2850.0" cy="-50.0" r="10.0" fill="black"/>
+<rect x="3000" y="-100" height="100" width="100"         stroke="black" stroke-width="2" fill="#E8E8E8"/>
+<text x="3050.0" y="-50.0"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="300%">NIL</text>
+<rect x="3000" y="-200" height="100" width="100"         stroke="black" stroke-width="2" fill="#E8E8E8"/>
+<text x="3050.0" y="-150.0"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="300%">NIL</text>
+<rect x="3000" y="-300" height="100" width="100"         stroke="black" stroke-width="2" fill="#E8E8E8"/>
+<text x="3050.0" y="-250.0"  dominant-baseline="middle"         text-anchor="middle" fill="black" font-size="300%">NIL</text>
+<text x="3050.0" y="150"  dominant-baseline="middle"         text-anchor="middle" fill="gray" font-size="400%">[tail]</text>
+<line x1="50.0" y1="-50.0" x2="200" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="250.0" y1="-50.0" x2="400" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="450.0" y1="-50.0" x2="600" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="650.0" y1="-50.0" x2="800" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="850.0" y1="-50.0" x2="1000" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1050.0" y1="-50.0" x2="1200" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1250.0" y1="-50.0" x2="1400" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1450.0" y1="-50.0" x2="1600" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1650.0" y1="-50.0" x2="1800" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1850.0" y1="-50.0" x2="2000" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2050.0" y1="-50.0" x2="2200" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2250.0" y1="-50.0" x2="2400" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2450.0" y1="-50.0" x2="2600" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2650.0" y1="-50.0" x2="2800" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2850.0" y1="-50.0" x2="3000" y2="-50.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="50.0" y1="-150.0" x2="400" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="450.0" y1="-150.0" x2="600" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="650.0" y1="-150.0" x2="1000" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1050.0" y1="-150.0" x2="1200" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1250.0" y1="-150.0" x2="1800" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1850.0" y1="-150.0" x2="2200" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2250.0" y1="-150.0" x2="2600" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="2650.0" y1="-150.0" x2="3000" y2="-150.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="50.0" y1="-250.0" x2="1000" y2="-250.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1050.0" y1="-250.0" x2="1200" y2="-250.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1250.0" y1="-250.0" x2="1800" y2="-250.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+<line x1="1850.0" y1="-250.0" x2="3000" y2="-250.0" stroke="black"         stroke-width="2" marker-end="url(#arrowend)"/>
+</svg>

@@ -87,7 +87,7 @@ sl = SkipList()
 sl_tokens = "the red and the black cat played with the gray and the brown koalas".split()
 for index, token in enumerate(sl_tokens):
     sl.insert(str(index).zfill(4), token)
-pp.pprint(dumpNodes(sl))
+# pp.pprint(dumpNodes(sl))
 
 # SVG constants
 SkiplistNodes = dumpNodes(sl)  # node 0 is head, data begins at node 1
