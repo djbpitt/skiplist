@@ -1,6 +1,9 @@
 # MacOS stuff
 .DS_Store
 
+# Python stuff
+*.pyc
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
